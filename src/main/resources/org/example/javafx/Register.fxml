@@ -11,19 +11,19 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #313338;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafx.Login">
    <children>
-      <Label alignment="CENTER" layoutX="245.0" layoutY="78.0" style="-fx-text-fill: white;" text="Create an account">
+      <Label alignment="CENTER" layoutX="245.0" layoutY="78.0" style="-fx-text-fill: white;" styleClass="text" stylesheets="@styles.css" text="Create an account">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Button id="" alignment="CENTER" layoutX="258.0" layoutY="369.0" mnemonicParsing="false" onAction="#LoginAction" prefHeight="32.0" prefWidth="136.0" style="-fx-background-color: #4e59d6; -fx-text-fill: white; -fx-font-weight: 900; -fx-border-radius: 5;" text="Register" />
-      <PasswordField fx:id="password_input" layoutX="166.0" layoutY="278.0" prefHeight="36.0" prefWidth="320.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white;" />
-      <Label layoutX="169.0" layoutY="261.0" style="-fx-text-fill: #b1b5bc; -fx-font-weight: 800; -fx-font-size: 10;" text="PASSWORD" />
-      <TextField fx:id="email_input" layoutX="166.0" layoutY="215.0" prefHeight="36.0" prefWidth="320.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white; -fx-font-weight: 600;" />
-      <Label layoutX="169.0" layoutY="197.0" style="-fx-text-fill: #b1b5bc; -fx-font-weight: 800; -fx-font-size: 10;" text="EMAIL" />
+      <Button id="" alignment="CENTER" layoutX="258.0" layoutY="369.0" mnemonicParsing="false" onAction="#LoginAction" prefHeight="32.0" prefWidth="136.0" style="-fx-background-color: #4e59d6; -fx-text-fill: white; -fx-font-weight: 900; -fx-border-radius: 5;" styleClass="text" stylesheets="@styles.css" text="Register" />
+      <PasswordField fx:id="password_input" layoutX="166.0" layoutY="278.0" prefHeight="36.0" prefWidth="320.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white;" stylesheets="@styles.css" />
+      <Label layoutX="169.0" layoutY="261.0" style="-fx-text-fill: #b1b5bc; -fx-font-weight: 800; -fx-font-size: 10;" styleClass="text" stylesheets="@styles.css" text="PASSWORD" />
+      <TextField fx:id="email_input" layoutX="166.0" layoutY="215.0" prefHeight="36.0" prefWidth="320.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white; -fx-font-weight: 600;" styleClass="text" stylesheets="@styles.css" />
+      <Label layoutX="169.0" layoutY="197.0" style="-fx-text-fill: #b1b5bc; -fx-font-weight: 800; -fx-font-size: 10;" styleClass="text" stylesheets="@styles.css" text="EMAIL" />
       <Text fx:id="error_login" fill="RED" layoutX="142.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Label layoutX="169.0" layoutY="133.0" style="-fx-text-fill: #b1b5bc; -fx-font-weight: 800; -fx-font-size: 10;" text="USERNAME" />
-      <TextField fx:id="email_input1" layoutX="166.0" layoutY="151.0" prefHeight="36.0" prefWidth="320.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white; -fx-font-weight: 600;" />
-      <Hyperlink layoutX="163.0" layoutY="327.0" text="Already got an account?" />
+      <Label layoutX="169.0" layoutY="133.0" style="-fx-text-fill: #b1b5bc; -fx-font-weight: 800; -fx-font-size: 10;" styleClass="text" stylesheets="@styles.css" text="USERNAME" />
+      <TextField fx:id="email_input1" layoutX="166.0" layoutY="151.0" prefHeight="36.0" prefWidth="320.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white; -fx-font-weight: 600;" styleClass="text" stylesheets="@styles.css" />
+      <Hyperlink layoutX="163.0" layoutY="327.0" styleClass="text" stylesheets="@styles.css" text="Already got an account?" />
    </children>
 </Pane>

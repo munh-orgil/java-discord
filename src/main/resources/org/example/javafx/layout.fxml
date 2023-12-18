@@ -43,14 +43,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafx.Layout">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="194.0" prefWidth="640.0" style="-fx-background-color: #424549;" VBox.vgrow="ALWAYS">
       <children>
-            <TextField fx:id="textInput" layoutX="367.3333333333333" layoutY="754.0" prefHeight="31.0" prefWidth="841.0" promptText="Message" style="-fx-background-color: #1e2124; -fx-text-fill: white;" AnchorPane.bottomAnchor="16.666666666666668" AnchorPane.leftAnchor="367.3333333333333" AnchorPane.rightAnchor="71.33333333333326" />
-            <Button fx:id="sendButton" layoutX="1222.6666666666667" layoutY="753.0" mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: #7289da;" text="Send" textFill="WHITE" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="13.333333333333258">
+            <TextField fx:id="textInput" layoutX="384.0" layoutY="754.0" prefHeight="31.0" prefWidth="826.0" promptText="Message" style="-fx-background-color: #1e2124; -fx-text-fill: white;" styleClass="text" stylesheets="@styles.css" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="384.0" AnchorPane.rightAnchor="71.0" />
+            <Button fx:id="sendButton" layoutX="1222.6666666666667" layoutY="753.0" mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: #7289da;" styleClass="text" stylesheets="@styles.css" text="Send" textFill="WHITE" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="13.333333333333258">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
@@ -67,11 +69,11 @@
                   </Label>
                   <Accordion maxWidth="284.0" prefHeight="685.0" prefWidth="284.0" style="-fx-background-color: #282b30;">
                     <panes>
-                      <TitledPane fx:id="textChannelAccordion" animated="false" prefHeight="660.0" prefWidth="281.6" style="-fx-background-color: #282b30; -fx-color: #36393e; -fx-focus-traversable: black;" text="Text Channel">
+                      <TitledPane fx:id="textChannelAccordion" animated="false" prefHeight="660.0" prefWidth="281.6" style="-fx-background-color: #282b30; -fx-color: #36393e; -fx-focus-traversable: black;" stylesheets="@styles.css" text="Text Channel">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="633.0" prefWidth="280.0" style="-fx-background-color: #282b30; -fx-border-color: #424549;">
                                  <children>
-                                    <Button fx:id="newTextChannel" layoutX="77.0" layoutY="564.8" mnemonicParsing="false" prefHeight="48.0" prefWidth="138.0" style="-fx-background-color: #7289da;" text="New Channel" AnchorPane.bottomAnchor="31.0" AnchorPane.topAnchor="554.0" />
+                                    <Button fx:id="newTextChannel" layoutX="77.0" layoutY="564.8" mnemonicParsing="false" prefHeight="48.0" prefWidth="138.0" style="-fx-background-color: #7289da;" styleClass="text" stylesheets="@styles.css" text="New Channel" AnchorPane.bottomAnchor="31.0" AnchorPane.topAnchor="554.0" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -79,17 +81,14 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                       </TitledPane>
-                      <TitledPane fx:id="voiceChannelAccordion" animated="false" prefWidth="270.0" style="-fx-color: #36393e;" text="Voice Channel">
+                      <TitledPane fx:id="voiceChannelAccordion" animated="false" prefWidth="270.0" style="-fx-color: #36393e;" styleClass="text" stylesheets="@styles.css" text="Voice Channel">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="634.0" prefWidth="369.0" style="-fx-background-color: #282b30;">
                                  <children>
-                                    <Button fx:id="newVoiceChannel" layoutX="82.0" layoutY="566.4" mnemonicParsing="false" prefHeight="48.0" prefWidth="138.0" style="-fx-background-color: #7289da;" text="New Channel" AnchorPane.bottomAnchor="28.0" AnchorPane.topAnchor="557.0" />
+                                    <Button fx:id="newVoiceChannel" layoutX="82.0" layoutY="566.4" mnemonicParsing="false" prefHeight="48.0" prefWidth="138.0" style="-fx-background-color: #7289da;" styleClass="text" stylesheets="@styles.css" text="New Channel" AnchorPane.bottomAnchor="28.0" AnchorPane.topAnchor="557.0" />
                                  </children>
                               </AnchorPane>
                         </content>
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
                       </TitledPane>
                     </panes>
                   </Accordion>
@@ -105,41 +104,39 @@
                   <ListView fx:id="listView" prefHeight="735.0" prefWidth="906.0" style="-fx-background-color: #36393E; -fx-border-color: #36393E;" />
                </children>
             </VBox>
+            <Rectangle arcWidth="5.0" fill="#282b30" height="63.0" layoutX="87.0" layoutY="740.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.3" AnchorPane.bottomAnchor="0.20000000000004547" />
             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="97.0" layoutY="745.0" pickOnBounds="true" smooth="false" style="-fx-background-radius: 1000;" AnchorPane.bottomAnchor="14.200000000000045">
                <image>
                   <Image url="@profilee.png" />
                </image>
             </ImageView>
-            <Label fx:id="usernameLabel" layoutX="146.0" layoutY="752.0" text="Username" textFill="WHITE" AnchorPane.bottomAnchor="23.199999999999932">
+            <Label fx:id="usernameLabel" layoutX="146.0" layoutY="752.0" styleClass="text" stylesheets="@styles.css" text="Username" textFill="WHITE" AnchorPane.bottomAnchor="23.199999999999932">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Somatic-Rounded" size="16.0" />
                </font>
             </Label>
-            <Button layoutX="238.0" layoutY="753.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="19.33333333333337">
+            <Button layoutX="245.0" layoutY="754.2" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="21.799999999999955">
+               <padding>
+                  <Insets left="7.0" />
+               </padding>
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" style="-fx-color: white;">
-                     <image>
-                        <Image url="@4991-unmute.png" />
-                     </image>
-                  </ImageView>
+                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdmz-mic" iconSize="24" />
                </graphic>
             </Button>
-            <Button layoutX="275.0" layoutY="753.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="19.33333333333337">
+            <Button layoutX="283.0" layoutY="755.2" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="20.799999999999955">
+               <padding>
+                  <Insets left="7.0" />
+               </padding>
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@4529-undeafened.png" />
-                     </image>
-                  </ImageView>
+                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdal-headset" iconSize="24" />
                </graphic>
             </Button>
-            <Button layoutX="314.0" layoutY="750.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="19.0">
+            <Button layoutX="321.0" layoutY="754.6" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="21.399999999999977">
+               <padding>
+                  <Insets left="7.0" />
+               </padding>
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@2044-settings.png" />
-                     </image>
-                  </ImageView>
+                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdmz-settings" iconSize="24" text="" />
                </graphic>
             </Button>
       </children>

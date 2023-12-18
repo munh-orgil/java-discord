@@ -32,7 +32,6 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -43,66 +42,75 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafx.Layout">
   <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="809.0" prefWidth="1280.0" style="-fx-background-color: #424549;">
          <children>
-            <ImageView fitHeight="82.0" fitWidth="63.0" layoutX="366.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" smooth="false" style="-fx-background-radius: 1000;" AnchorPane.bottomAnchor="631.0">
+            <ImageView fitHeight="193.0" fitWidth="167.0" layoutX="952.0" layoutY="80.00000000000006" pickOnBounds="true" preserveRatio="true" smooth="false" style="-fx-background-radius: 1000;" AnchorPane.bottomAnchor="553.0">
                <image>
                   <Image url="@profilee.png" />
                </image>
             </ImageView>
-            <Label fx:id="usernameLabel1" layoutX="444.0" layoutY="117.60000000000002" text="NICKNAME" textFill="WHITE" AnchorPane.bottomAnchor="642.4">
+            <Label fx:id="usernameLabel1" layoutX="529.0" layoutY="81.6" styleClass="text" stylesheets="@styles.css" text="NICKNAME" textFill="WHITE" AnchorPane.bottomAnchor="684.0">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <Line endX="-99.99993896484375" endY="591.0" layoutX="414.0" layoutY="165.0" startX="-99.99993896484375" startY="-109.8000259399414" stroke="#1b1b1b" />
-            <Button layoutX="654.0" layoutY="124.0" mnemonicParsing="false" style="-fx-background-color: #7289da;" text="Edit Profile" textFill="WHITE" />
-            <TextField layoutX="366.0" layoutY="221.0" prefHeight="35.0" prefWidth="362.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white;" />
-            <TextField layoutX="366.0" layoutY="293.0" prefHeight="35.0" prefWidth="362.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white;" />
-            <Label layoutX="371.0" layoutY="201.0" text="USERNAME" textFill="WHITE" />
-            <Label layoutX="371.0" layoutY="272.0" text="PASSWORD" textFill="WHITE" />
-            <TextField layoutX="366.0" layoutY="365.0" prefHeight="35.0" prefWidth="362.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white;" />
-            <Label layoutX="371.0" layoutY="344.0" text="E-MAIL" textFill="WHITE" />
-            <VBox layoutY="53.0" prefHeight="702.0" prefWidth="314.0">
+            <Line endX="-99.99993896484375" endY="591.0" layoutX="564.0" layoutY="165.0" startX="-99.99993896484375" startY="-109.8000259399414" stroke="#8c8c8c" />
+            <Button layoutX="794.0" layoutY="81.0" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #7289da;" styleClass="text" stylesheets="@styles.css" text="Edit Profile" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <TextField layoutX="526.0" layoutY="181.0" prefHeight="35.0" prefWidth="362.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white;" stylesheets="@styles.css" />
+            <TextField layoutX="526.0" layoutY="253.0" prefHeight="35.0" prefWidth="362.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white;" stylesheets="@styles.css" />
+            <Label layoutX="531.0" layoutY="161.0" style="-fx-font-size: 12; -fx-font-weight: 800;" styleClass="text" text="USERNAME" textFill="WHITE" />
+            <Label layoutX="531.0" layoutY="232.0" style="-fx-font-weight: 800;" styleClass="text" text="PASSWORD" textFill="WHITE" />
+            <TextField layoutX="526.0" layoutY="325.0" prefHeight="35.0" prefWidth="362.0" style="-fx-background-color: #1e1f22; -fx-text-fill: white;" stylesheets="@styles.css" />
+            <Label layoutX="531.0" layoutY="304.0" style="-fx-font-weight: 800;" styleClass="text" text="E-MAIL" textFill="WHITE" />
+            <VBox layoutX="130.0" layoutY="53.0" prefHeight="702.0" prefWidth="314.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="257.0" style="-fx-background-color: #282b30;" text="Profile" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: #282b30;" styleClass="text" stylesheets="@styles.css" text="Profile" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
-                     <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="USER" text="" />
-                     </graphic>
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="5.0" />
                      </VBox.margin>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="mdal-account_circle" iconSize="24" text="" />
+                     </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="257.0" style="-fx-background-color: #282b30;" text="Edit Profile" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: #282b30;" styleClass="text" stylesheets="@styles.css" text="Edit Profile" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
-                     <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="PENCIL" />
-                     </graphic>
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="5.0" />
                      </VBox.margin>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="mdal-edit" iconSize="20" />
+                     </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="257.0" style="-fx-background-color: #282b30;" text="Edit Profile" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="257.0" style="-fx-background-color: #f94449;" styleClass="text" stylesheets="@styles.css" text="Log Out" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
-                     <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="ARROW" text="" />
-                     </graphic>
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" top="560.0" />
                      </VBox.margin>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="mdal-log_out" iconSize="20" />
+                     </graphic>
                   </Button>
                </children>
             </VBox>
+            <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: 424549;">
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="mdal-arrow_back" iconSize="24" />
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
   </children>

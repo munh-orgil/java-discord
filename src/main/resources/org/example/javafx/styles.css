@@ -71,3 +71,13 @@
     -fx-background-insets : 0.0, 0.0, 0.0;
     -fx-background-radius : 2.0em;
 }
+
+@font-face {
+    font-family: 'Whitney';
+    src: url('fonts/whitneymedium.otf');
+}
+
+.text {
+    -fx-font-family: "Whitney";
+}
+
