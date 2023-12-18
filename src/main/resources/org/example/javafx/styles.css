@@ -8,11 +8,9 @@
     -fx-text-fill: white;
     -fx-alignment: center-left;
 }
-
 .titled-pane > .title:hover {
     -fx-background-color: #1E1F22;
 }
-
 .accordion:hover {
     -fx-background-color: transparent;
 }
@@ -38,46 +36,38 @@
     -fx-background-radius : 2.0em;
     -fx-border-radius :2.0em;
 }
-
 .scroll-bar:vertical .increment-button ,
 .scroll-bar:vertical .decrement-button {
     -fx-background-color :transparent;
     -fx-background-radius : 0.0em;
     -fx-padding :0.0 10.0 0.0 0.0;
 }
-
 .scroll-bar .increment-arrow,
 .scroll-bar .decrement-arrow{
     -fx-shape : " ";
     -fx-padding :0.15em 0.0;
 }
-
 .scroll-bar:vertical .increment-arrow,
 .scroll-bar:vertical .decrement-arrow{
     -fx-shape : " ";
     -fx-padding :0.0 0.15em;
 }
-
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
     -fx-background-color :derive(black,90.0%);
     -fx-background-insets : 0.0, 0.0, 0.0;
     -fx-background-radius : 2.0em;
 }
-
 .scroll-bar:horizontal .thumb:pressed,
 .scroll-bar:vertical .thumb:pressed {
     -fx-background-color :derive(#4D4C4F,10.0%);
     -fx-background-insets : 0.0, 0.0, 0.0;
     -fx-background-radius : 2.0em;
 }
-
 @font-face {
     font-family: 'Whitney';
     src: url('fonts/whitneymedium.otf');
 }
-
 .text {
     -fx-font-family: "Whitney";
 }
-

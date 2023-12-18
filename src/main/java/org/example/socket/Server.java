@@ -36,6 +36,7 @@ public class Server {
                 Routes.Handle(res);
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
+                break;
             }
         }
     }
