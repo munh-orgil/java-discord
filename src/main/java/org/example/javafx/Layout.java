@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import org.example.modules.Message;
@@ -52,7 +53,9 @@ public class Layout {
             usernameLabel.setText(Constants.user.nickname);
         }
         textInput.setOnKeyPressed(e -> {
-            sendMessage();
+            if (e.getCode().equals(KeyCode.ENTER)) {
+                sendMessage();
+            }
         });
         // VBox parent = (VBox) textChannelName.getParent();
         // textChannelName.prefWidthProperty().bind(parent.widthProperty());
