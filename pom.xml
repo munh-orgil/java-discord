@@ -12,7 +12,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <junit.version>5.10.0</junit.version>  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.openjfx</groupId>
@@ -33,6 +32,16 @@
       <groupId>org.kordamp.bootstrapfx</groupId>
       <artifactId>bootstrapfx-core</artifactId>
       <version>0.4.0</version>
+    </dependency>
+      <dependency>
+          <groupId>org.kordamp.ikonli</groupId>
+          <artifactId>ikonli-javafx</artifactId>
+          <version>12.3.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kordamp.ikonli</groupId>
+        <artifactId>ikonli-material2-pack</artifactId>
+        <version>12.3.1</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
