@@ -70,7 +70,7 @@ public class Login {
     void initialize() {
         assert email_input != null : "fx:id=\"email_input\" was not injected: check your FXML file 'Login.fxml'.";
         assert password_input != null : "fx:id=\"password_input\" was not injected: check your FXML file 'Login.fxml'.";
-        email_input.setText("m.orgilmn@gmail.com");
+        email_input.setText("m_orgilmn@yahoo.com");
         password_input.setText("123");
     }
 
