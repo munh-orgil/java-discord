@@ -1,5 +1,6 @@
 package org.example.modules;
 
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.Serial;
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public class User implements Serializable {
 	public Long isMuted;
 	public Long isDeafened;
 	public Timestamp createdAt;
+	public ActionEvent event;
 
 	public User() {}
 

@@ -17,8 +17,6 @@ import org.example.socket.Request;
 import org.example.socket.Response;
 import org.example.socket.Server;
 
-import static java.lang.Integer.MAX_VALUE;
-
 public class Layout {
     @FXML
     private TitledPane textChannelAccordion;
@@ -34,53 +32,57 @@ public class Layout {
     private Label usernameLabel;
     private List<org.example.modules.Server> servers;
     @FXML
-    public static ListView<Message> listView;
-    @FXML
-    private ImageView avatar;
+    public ListView<Message> listView;
     @FXML
     private Label serverName;
     @FXML
     private Label textChannelName;
     @FXML
-    private TextField textInput;
+    public TextField textInput;
     @FXML
     private Button sendButton;
-
+    public List<Message> messages;
+    public static Layout CurrentInstance = null;
 
     @FXML
     void initialize() {
+        CurrentInstance = this;
+        listView.setCellFactory(new MessageViewFactory());
         if (Constants.user != null) {
             usernameLabel.setText(Constants.user.nickname);
         }
+        textInput.setOnKeyPressed(e -> {
+            sendMessage();
+        });
         // VBox parent = (VBox) textChannelName.getParent();
         // textChannelName.prefWidthProperty().bind(parent.widthProperty());
         try {
-            Server.out.writeObject(new Request("list", "server", null));
+            Server.out.writeObject(new Request("list", "server", "fetchServer", null));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try {
-            Response res = (Response) Server.in.readObject();
-            servers = (List<org.example.modules.Server>) res.body;
-            if (Constants.selectedServer == null && !servers.isEmpty()) {
-                Constants.selectedServer = servers.getFirst();
-                drawServer();
-            }
-            serverList();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+    }
+    public void fetchServer(Response res) {
+        servers = (List<org.example.modules.Server>) res.body;
+        if (Constants.selectedServer == null && !servers.isEmpty()) {
+            Constants.selectedServer = servers.getFirst();
+            drawServer();
         }
+        serverList();
         sendButton.setOnAction(e -> {
-            String text = textInput.getText();
-            Message msg = new Message();
-            msg.textChannel = Constants.selectedTextChannel;
-            msg.content = text.trim();
-            try {
-                Server.out.writeObject(new Request("create", "message", msg));
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            sendMessage();
         });
+    }
+    private void sendMessage() {
+        String text = textInput.getText();
+        Message msg = new Message();
+        msg.textChannel = Constants.selectedTextChannel;
+        msg.content = text.trim();
+        try {
+            Server.out.writeObject(new Request("create", "message", "chat", msg));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
     private void serverList() {
         serversPane.getChildren().removeAll(serversPane.getChildren());
@@ -111,25 +113,22 @@ public class Layout {
                 );
         button.setOnAction(e -> {
             try {
-                Server.out.writeObject(new Request("find", "server", server));
+                Server.out.writeObject(new Request("find", "server", "findServer", server));
             } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
             }
-            try {
-                Response res = (Response) Server.in.readObject();
-                if (res.status == 200) {
-                    Constants.selectedServer = (org.example.modules.Server) res.body;
-                    serverList();
-                }
-            } catch (IOException | ClassNotFoundException ex) {
-                throw new RuntimeException(ex);
-            }
-            drawServer();
         });
 
         button.setMinHeight(70);
         button.setPrefWidth(Region.USE_COMPUTED_SIZE);
         return button;
+    }
+    public void findServer(Response res) {
+        if (res.status == 200) {
+            Constants.selectedServer = (org.example.modules.Server) res.body;
+            serverList();
+        }
+        drawServer();
     }
 
     private void drawServer() {
@@ -189,23 +188,24 @@ public class Layout {
                 textChannelName.setText(Constants.selectedTextChannel.name);
             }
             msg.textChannel = Constants.selectedTextChannel;
-            Server.out.writeObject(new Request("list", "message", 1, 50, msg));
+            Server.out.writeObject(new Request("list", "message", "fetchMessage", msg));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        try {
-            Response res = (Response) Server.in.readObject();
-            if (res.status == 200) {
-                List<Message> messages = (List<Message>) res.body;
-                listView.getItems().removeAll(listView.getItems());
-                listView.setCellFactory(new MessageViewFactory());
-                for (Message msg: messages) {
-                    listView.getItems().addFirst(msg);
-                }
-                listView.scrollTo(listView.getItems().size());
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+    }
+    public void fetchMessage(Response res) {
+        if (res.status == 200) {
+            messages = (List<Message>) res.body;
+            DrawListView();
         }
+    }
+
+    public void DrawListView() {
+        listView.getItems().removeAll(listView.getItems());
+        for (Message msg: messages) {
+            listView.getItems().addFirst(msg);
+        }
+        listView.refresh();
+        listView.scrollTo(messages.size()+100);
     }
 }

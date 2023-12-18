@@ -17,19 +17,26 @@ public class Server {
         socket = new Socket(ipAddress, 5000);
         in = new ObjectInputStream(socket.getInputStream());
         out = new ObjectOutputStream(socket.getOutputStream());
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Listener();
+            }
+        });
+        thread.start();
     }
 
-    public static void MessageListener() {
-        try {
-            Response res = (Response) in.readObject();
-            if (res.status == 200) {
-                Message msg = (Message) res.body;
-                if (msg.textChannel != null && Constants.selectedTextChannel != null && Constants.selectedTextChannel.id.equals(msg.textChannel.id)) {
-                    Layout.listView.getItems().add(msg);
-                }
+    public static void Listener() {
+        Response res;
+        Message msg;
+        while(true) {
+            try {
+                res = (Response) in.readObject();
+                Routes.Handle(res);
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
             }
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
         }
     }
 }

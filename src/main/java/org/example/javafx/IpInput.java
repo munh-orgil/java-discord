@@ -40,7 +40,7 @@ public class IpInput {
         try {
             Server.Init(ipAddress);
             root = FXMLLoader.load(Main.class.getResource("Login.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage = Constants.stage;
             scene = new Scene(root);
             Constants.ImportStyle(scene, this);
             stage.setScene(scene);

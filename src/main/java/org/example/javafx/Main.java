@@ -17,10 +17,10 @@ public class Main extends Application {
         stage.setTitle("MongolHub");
         stage.setScene(scene);
         stage.show();
+        Constants.stage = stage;
     }
 
     public static void main(String[] args) {
-
         launch();
     }
 }
