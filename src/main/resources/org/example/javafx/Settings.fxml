@@ -97,7 +97,7 @@
             </VBox>
             <VBox layoutX="370.0" layoutY="-1.0" minWidth="907.0" prefHeight="740.0" prefWidth="907.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="370.0" AnchorPane.rightAnchor="2.3999999999999773" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label fx:id="textChannelName" maxWidth="-Infinity" prefHeight="53.0" prefWidth="916.0" style="-fx-background-color: #313338; -fx-padding: 0 0 0 20;" textFill="WHITE">
+                  <Label fx:id="textChannelName" maxWidth="-Infinity" prefHeight="105.0" prefWidth="907.0" style="-fx-background-color: #313338; -fx-padding: 0 0 0 20;" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
