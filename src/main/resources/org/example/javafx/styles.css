@@ -1,0 +1,73 @@
+.channelButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+}
+.channelButton:hover {
+    -fx-background-color: "#36373D";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+}
+
+.titled-pane > .title:hover {
+    -fx-background-color: #1E1F22;
+}
+
+.accordion:hover {
+    -fx-background-color: transparent;
+}
+.list-view .list-cell:even {
+    -fx-background-color: transparent;
+}
+.list-view .list-cell:odd {
+    -fx-background-color: transparent;
+}
+.list-view .list-cell {
+    -fx-padding: 8;
+}
+.list-view .list-cell:hover {
+    -fx-background-color: "#2E3035";
+}
+.scroll-bar {
+    -fx-background-color: "#36393E";
+    -fx-pref-width: 6px;
+}
+.scroll-bar:vertical .track{
+    -fx-background-color :"#282b30";
+    -fx-border-color :transparent;
+    -fx-background-radius : 2.0em;
+    -fx-border-radius :2.0em;
+}
+
+.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 10.0 0.0 0.0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.15em 0.0;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.0 0.15em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color :derive(black,90.0%);
+    -fx-background-insets : 0.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-bar:horizontal .thumb:pressed,
+.scroll-bar:vertical .thumb:pressed {
+    -fx-background-color :derive(#4D4C4F,10.0%);
+    -fx-background-insets : 0.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
