@@ -52,8 +52,8 @@ public class Layout {
         if (Constants.user != null) {
             usernameLabel.setText(Constants.user.nickname);
         }
-        VBox parent = (VBox) textChannelName.getParent();
-        textChannelName.prefWidthProperty().bind(parent.widthProperty());
+        // VBox parent = (VBox) textChannelName.getParent();
+        // textChannelName.prefWidthProperty().bind(parent.widthProperty());
         try {
             Server.out.writeObject(new Request("list", "server", null));
         } catch (IOException e) {
