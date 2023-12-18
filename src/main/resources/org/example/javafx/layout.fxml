@@ -42,6 +42,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -57,7 +58,7 @@
                   <Font name="System Bold" size="12.0" />
                </font></Button>
             <VBox fx:id="serversPane" prefHeight="799.0" prefWidth="86.0" style="-fx-background-color: #1e2124;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <VBox layoutX="86.0" minWidth="284.0" prefHeight="738.0" prefWidth="284.0" style="-fx-border-style: hidden solid hidden hidden;" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="910.0" AnchorPane.topAnchor="0.0">
+            <VBox layoutX="86.0" minWidth="284.0" prefHeight="738.0" prefWidth="284.0" style="-fx-border-style: hidden solid hidden hidden;" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="86.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label fx:id="serverName" prefHeight="53.0" prefWidth="313.0" style="-fx-padding: 8; -fx-background-color: #2B2D31;" textFill="#e1e1e1">
                      <font>
@@ -67,7 +68,7 @@
                         <Insets />
                      </opaqueInsets>
                   </Label>
-                  <Accordion maxWidth="284.0" prefHeight="685.0" prefWidth="284.0" style="-fx-background-color: #282b30;">
+                  <Accordion maxWidth="284.0" prefHeight="685.0" prefWidth="284.0" style="-fx-background-color: #282b30;" VBox.vgrow="ALWAYS">
                     <panes>
                       <TitledPane fx:id="textChannelAccordion" animated="false" prefHeight="660.0" prefWidth="281.6" style="-fx-background-color: #282b30; -fx-color: #36393e; -fx-focus-traversable: black;" stylesheets="@styles.css" text="Text Channel">
                         <content>
@@ -96,12 +97,16 @@
             </VBox>
             <VBox layoutX="370.0" layoutY="-1.0" minWidth="907.0" prefHeight="740.0" prefWidth="907.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="370.0" AnchorPane.rightAnchor="2.3999999999999773" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label fx:id="textChannelName" maxWidth="-Infinity" prefHeight="53.0" prefWidth="916.0" style="-fx-background-color: #313338; -fx-padding: 0 0 0 20;" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <ListView fx:id="listView" prefHeight="735.0" prefWidth="906.0" style="-fx-background-color: #36393E; -fx-border-color: #36393E;" />
+                  <Pane prefHeight="56.0" prefWidth="907.0" style="-fx-background-color: #313338;">
+                     <children>
+                        <Label fx:id="textChannelName" maxHeight="54.0" prefHeight="54.0" prefWidth="909.0" style="-fx-background-color: #313338; -fx-padding: 0 0 0 20;" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <ListView fx:id="listView" style="-fx-background-color: #36393E; -fx-border-color: #36393E;" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
             <Rectangle arcWidth="5.0" fill="#282b30" height="63.0" layoutX="87.0" layoutY="740.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.3" AnchorPane.bottomAnchor="0.20000000000004547" />
