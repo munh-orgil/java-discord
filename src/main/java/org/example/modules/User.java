@@ -28,6 +28,8 @@ public class User implements Serializable {
 		return "User:\n" +
 				"id: " + id.toString() + "\n" +
 				"email: " + email + "\n" +
+				"isMuted: " + isMuted + "\n" +
+				"isDeafened: " + isDeafened + "\n" +
 				"nickname: " + nickname + "\n";
 	}
 }

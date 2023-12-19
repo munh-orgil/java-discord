@@ -17,6 +17,7 @@ import org.example.modules.User;
 import org.example.socket.Request;
 import org.example.socket.Response;
 import org.example.socket.Server;
+import org.example.socket.VoiceServer;
 
 public class Login {
 
@@ -54,6 +55,8 @@ public class Login {
     public void loginUser(Response res) {
         if (res.status == 200) {
             Constants.user = (User) res.body;
+            VoiceServer.Init();
+            Constants.InitVoice();
             try {
                 root = FXMLLoader.load(Main.class.getResource("layout.fxml"));
             } catch (IOException e) {

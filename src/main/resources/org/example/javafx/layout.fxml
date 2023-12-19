@@ -58,7 +58,7 @@
                   <Font name="System Bold" size="12.0" />
                </font></Button>
             <VBox fx:id="serversPane" prefHeight="799.0" prefWidth="86.0" style="-fx-background-color: #1e2124;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <VBox layoutX="86.0" minWidth="284.0" prefHeight="738.0" prefWidth="284.0" style="-fx-border-style: hidden solid hidden hidden;" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="86.0" AnchorPane.topAnchor="0.0">
+            <VBox layoutX="86.0" minWidth="284.0" prefHeight="738.0" prefWidth="284.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="86.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label fx:id="serverName" prefHeight="50.0" prefWidth="313.0" style="-fx-padding: 8; -fx-background-color: #2B2D31; -fx-padding: 0 0 0 24; -fx-font-size: 18;" textFill="#e1e1e1">
                      <font>
@@ -110,7 +110,7 @@
                </children>
             </VBox>
             <Rectangle arcWidth="5.0" fill="#282b30" height="63.0" layoutX="87.0" layoutY="740.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.3" AnchorPane.bottomAnchor="0.20000000000004547" />
-            <Button layoutX="86.0" layoutY="742.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="163.0" style="-fx-background-color: transparent; -fx-alignment: left;" styleClass="text" stylesheets="@styles.css" text="Button" textFill="WHITE" AnchorPane.bottomAnchor="10.0">
+            <Button fx:id="usernameButton" layoutX="86.0" layoutY="742.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="163.0" style="-fx-background-color: transparent; -fx-alignment: left;" styleClass="text" stylesheets="@styles.css" text="Button" textFill="WHITE" AnchorPane.bottomAnchor="10.0">
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" smooth="false" style="-fx-background-radius: 1000; -fx-align: left;">
                      <image>
@@ -119,7 +119,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="245.0" layoutY="754.2" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="21.799999999999955">
+            <Button fx:id="disconnect" layoutX="245.0" layoutY="754.2" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent; -fx-background-radius: 100;" visible="false" AnchorPane.bottomAnchor="21.799999999999955">
                <padding>
                   <Insets left="7.0" />
                </padding>
@@ -127,20 +127,20 @@
                   <FontIcon iconColor="#b4b4b4" iconLiteral="mdmz-phone_disabled" iconSize="24" />
                </graphic>
             </Button>
-            <Button layoutX="283.0" layoutY="755.2" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="20.799999999999955">
+            <Button fx:id="mute" layoutX="283.0" layoutY="755.2" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent; -fx-background-radius: 100;" AnchorPane.bottomAnchor="20.799999999999955">
                <padding>
                   <Insets left="7.0" />
                </padding>
                <graphic>
-                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdmz-mic" iconSize="24" />
+                  <FontIcon fx:id="muteIcon" iconColor="#b4b4b4" iconLiteral="mdmz-mic" iconSize="24" />
                </graphic>
             </Button>
-            <Button layoutX="321.0" layoutY="754.6" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="21.399999999999977">
+            <Button fx:id="deaf" layoutX="321.0" layoutY="754.6" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent; -fx-background-radius: 100;" AnchorPane.bottomAnchor="21.399999999999977">
                <padding>
                   <Insets left="7.0" />
                </padding>
                <graphic>
-                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdal-headset" iconSize="24" />
+                  <FontIcon fx:id="deafIcon" iconColor="#b4b4b4" iconLiteral="mdsmz-volume_up" iconSize="24" />
                </graphic>
             </Button>
       </children>

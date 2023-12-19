@@ -38,7 +38,8 @@ public class IpInput {
             ipAddress = "127.0.0.1";
         }
         try {
-            Server.Init(ipAddress);
+            Server.ipAddress = ipAddress;
+            Server.Init();
             root = FXMLLoader.load(Main.class.getResource("Login.fxml"));
             stage = Constants.stage;
             scene = new Scene(root);

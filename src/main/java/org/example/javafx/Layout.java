@@ -10,13 +10,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import org.example.modules.Message;
-import org.example.modules.MessageViewFactory;
-import org.example.modules.TextChannel;
-import org.example.modules.VoiceChannel;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import org.example.modules.*;
 import org.example.socket.Request;
 import org.example.socket.Response;
 import org.example.socket.Server;
+import org.kordamp.ikonli.Ikon;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 public class Layout {
     @FXML
@@ -30,7 +31,7 @@ public class Layout {
     @FXML
     private VBox serversPane;
     @FXML
-    private Label usernameLabel;
+    private Button usernameButton;
     private List<org.example.modules.Server> servers;
     @FXML
     public ListView<Message> listView;
@@ -42,20 +43,56 @@ public class Layout {
     public TextField textInput;
     @FXML
     private Button sendButton;
+    @FXML
+    private Button disconnect;
+    @FXML
+    private Button mute;
+    @FXML
+    private Button deaf;
+    @FXML
+    private FontIcon muteIcon;
+    @FXML
+    private FontIcon deafIcon;
     public List<Message> messages;
     public static Layout CurrentInstance = null;
 
     @FXML
     void initialize() {
         CurrentInstance = this;
+        DrawMute();
+        DrawDeaf();
         listView.setCellFactory(new MessageViewFactory());
         if (Constants.user != null) {
-            usernameLabel.setText(Constants.user.nickname);
+            usernameButton.setText(Constants.user.nickname);
         }
         textInput.setOnKeyPressed(e -> {
             if (e.getCode().equals(KeyCode.ENTER)) {
                 sendMessage();
             }
+        });
+        mute.setOnAction(event -> {
+            Constants.user.isMuted = 1 - Constants.user.isMuted;
+            User user = new User();
+            user.id = Constants.user.id;
+            user.isMuted = Constants.user.isMuted;
+            try {
+                Server.out.writeObject(new Request("edit", "user", "", user));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            DrawMute();
+        });
+        deaf.setOnAction(event -> {
+            Constants.user.isDeafened = 1 - Constants.user.isDeafened;
+            User user = new User();
+            user.id = Constants.user.id;
+            user.isDeafened = Constants.user.isDeafened;
+            try {
+                Server.out.writeObject(new Request("edit", "user", "", user));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            DrawDeaf();
         });
         // VBox parent = (VBox) textChannelName.getParent();
         // textChannelName.prefWidthProperty().bind(parent.widthProperty());
@@ -63,6 +100,27 @@ public class Layout {
             Server.out.writeObject(new Request("list", "server", "fetchServer", null));
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    public void DrawMute() {
+        System.out.println(Constants.user);
+        if (Constants.user.isMuted.equals(1L)) {
+            muteIcon.setIconColor(Color.RED);
+            muteIcon.setIconLiteral("mdmz-mic_off");
+            Constants.StopSpeak();
+        } else {
+            muteIcon.setIconColor(Color.valueOf("#b4b4b4"));
+            muteIcon.setIconLiteral("mdmz-mic");
+            new Thread(Constants::Speak);
+        }
+    }
+    public void DrawDeaf() {
+        if (Constants.user.isDeafened.equals(1L)) {
+            deafIcon.setIconColor(Color.RED);
+            deafIcon.setIconLiteral("mdsmz-volume_off");
+        } else {
+            deafIcon.setIconColor(Color.valueOf("#b4b4b4"));
+            deafIcon.setIconLiteral("mdsmz-volume_up");
         }
     }
     public void fetchServer(Response res) {
@@ -93,7 +151,7 @@ public class Layout {
             if (server.logo == null) {
                 server.logo = new File("src/main/resources/logo.png");
             }
-            Button button = getButton(server);
+            Button button = getServerButton(server);
             if (Constants.selectedServer.id.equals(server.id)) {
                 button.setStyle("-fx-background-color: #36373D;");
             } else {
@@ -103,7 +161,7 @@ public class Layout {
         }
     }
 
-    private Button getButton(org.example.modules.Server server) {
+    private Button getServerButton(org.example.modules.Server server) {
         ImageView img = new ImageView(new Image(server.logo.toURI().toString()));
         img.setFitHeight(70);
         img.setPreserveRatio(true);
@@ -173,11 +231,28 @@ public class Layout {
         voiceChannels.setStyle("-fx-background-color: #282b30");
         for (VoiceChannel voiceChannel: Constants.selectedServer.voiceChannels) {
             Button voiceChannelButton = channelButton(new Button(voiceChannel.name));
+            voiceChannelButton.setOnAction(e -> {
+                try {
+                    Server.out.writeObject(new Request("join", "voice_channel", "joinChannel", voiceChannel));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
             voiceChannels.getChildren().add(voiceChannelButton);
         }
         voiceChannelAccordion.setContent(voiceChannels);
     }
-
+    public void joinChannel(Response response) {
+        if (response.status != 200) {
+            return;
+        }
+        if (Constants.selectedVoiceChannel != null) {
+            Constants.LeaveSpeak();
+        }
+        Constants.selectedVoiceChannel = (VoiceChannel) response.body;
+        new Thread(Constants::Listener).start();
+        new Thread(Constants::Speak).start();
+    }
     private Button channelButton(Button button) {
         button.prefWidthProperty().bind(textChannelAccordion.widthProperty().subtract(2));
         button.getStyleClass().add("channelButton");
