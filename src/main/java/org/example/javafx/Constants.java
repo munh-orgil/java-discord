@@ -58,11 +58,11 @@ public class Constants {
     }
 
     public static void Listener() {
-        byte[] receiveData = new byte[2200];
+        byte[] receiveData = new byte[20000];
         try {
             while (selectedVoiceChannel != null && VoiceServer.in.read(receiveData) != -1) {
                 FloatControl volumeControl = (FloatControl) sourceDataLine.getControl(FloatControl.Type.MASTER_GAIN);
-                volumeControl.setValue(-10f);
+                volumeControl.setValue(-20f);
                 sourceDataLine.write(receiveData, 0, receiveData.length);
             }
         } catch (IOException e) {
@@ -78,7 +78,7 @@ public class Constants {
             } catch (LineUnavailableException e) {
                 throw new RuntimeException(e);
             }
-            byte[] data = new byte[2200];
+            byte[] data = new byte[20000];
             while (selectedVoiceChannel != null) {
                 try {
                     targetDataLine.read(data, 0, data.length);
