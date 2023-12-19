@@ -110,22 +110,21 @@
                </children>
             </VBox>
             <Rectangle arcWidth="5.0" fill="#282b30" height="63.0" layoutX="87.0" layoutY="740.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.3" AnchorPane.bottomAnchor="0.20000000000004547" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="97.0" layoutY="745.0" pickOnBounds="true" smooth="false" style="-fx-background-radius: 1000;" AnchorPane.bottomAnchor="14.200000000000045">
-               <image>
-                  <Image url="@profilee.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="usernameLabel" layoutX="146.0" layoutY="752.0" styleClass="text" stylesheets="@styles.css" text="Username" textFill="WHITE" AnchorPane.bottomAnchor="23.199999999999932">
-               <font>
-                  <Font name="Somatic-Rounded" size="16.0" />
-               </font>
-            </Label>
+            <Button layoutX="86.0" layoutY="742.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="163.0" style="-fx-background-color: transparent; -fx-alignment: left;" styleClass="text" stylesheets="@styles.css" text="Button" textFill="WHITE" AnchorPane.bottomAnchor="10.0">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" smooth="false" style="-fx-background-radius: 1000; -fx-align: left;">
+                     <image>
+                        <Image url="@profilee.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             <Button layoutX="245.0" layoutY="754.2" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="21.799999999999955">
                <padding>
                   <Insets left="7.0" />
                </padding>
                <graphic>
-                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdmz-mic" iconSize="24" />
+                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdmz-phone_disabled" iconSize="24" />
                </graphic>
             </Button>
             <Button layoutX="283.0" layoutY="755.2" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="20.799999999999955">
@@ -133,7 +132,7 @@
                   <Insets left="7.0" />
                </padding>
                <graphic>
-                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdal-headset" iconSize="24" />
+                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdmz-mic" iconSize="24" />
                </graphic>
             </Button>
             <Button layoutX="321.0" layoutY="754.6" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="21.399999999999977">
@@ -141,7 +140,7 @@
                   <Insets left="7.0" />
                </padding>
                <graphic>
-                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdmz-settings" iconSize="24" text="" />
+                  <FontIcon iconColor="#b4b4b4" iconLiteral="mdal-headset" iconSize="24" />
                </graphic>
             </Button>
       </children>
