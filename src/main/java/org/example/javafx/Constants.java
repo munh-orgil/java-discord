@@ -58,7 +58,7 @@ public class Constants {
     }
 
     public static void Listener() {
-        byte[] receiveData = new byte[20000];
+        byte[] receiveData = new byte[50000];
         try {
             while (selectedVoiceChannel != null && VoiceServer.in.read(receiveData) != -1) {
                 FloatControl volumeControl = (FloatControl) sourceDataLine.getControl(FloatControl.Type.MASTER_GAIN);
@@ -78,7 +78,7 @@ public class Constants {
             } catch (LineUnavailableException e) {
                 throw new RuntimeException(e);
             }
-            byte[] data = new byte[20000];
+            byte[] data = new byte[50000];
             while (selectedVoiceChannel != null) {
                 try {
                     targetDataLine.read(data, 0, data.length);
